@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.constants.RacingCarMessage;
 import racingcar.domain.RacingCars;
 import racingcar.util.RacingCarValidation;
 import racingcar.view.RacingCarGameOut;
@@ -12,7 +13,7 @@ public class RacingCarGameController {
 		playGame(cars, attemptNum);
 		RacingCarGameOut.getGameResult(cars);
 	}
-	
+
 	private static void playGame(RacingCars cars, int attemptNum) {
 		RacingCarGameOut.printResult(cars);
 		for(int i = 0; i < attemptNum; i++) {
@@ -28,9 +29,9 @@ public class RacingCarGameController {
 			carNames = RacingCarPlayer.readInputCarNames();
 			validCarName = checkValidCarName(carNames);
 		}
-		return carNames.split(",");
+		return carNames.split(RacingCarMessage.CAR_NAME_COMMA);
 	}
-	
+
 	private static int readAttemptNum() {
 		String attempNum = RacingCarPlayer.readInputAttemptNum();
 		boolean validAttemptNum = checkValidAttemptNum(attempNum);
@@ -40,7 +41,7 @@ public class RacingCarGameController {
 		}
 		return Integer.parseInt(attempNum);
 	}
-	
+
 	private static boolean checkValidCarName(String carNames) {
 		boolean validCarName = RacingCarValidation.validateCarName(carNames);
 		if(validCarName) {
@@ -48,7 +49,7 @@ public class RacingCarGameController {
 		}
 		return false;
 	}
-	
+
 	private static boolean checkValidAttemptNum(String attempNum) {
 		boolean validAttemptNum = RacingCarValidation.validateAttemptNum(attempNum);
 		if(validAttemptNum) {

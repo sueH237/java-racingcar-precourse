@@ -6,7 +6,7 @@ import racingcar.domain.RacingCarRandom;
 
 public class RacingCars {
 	private List<RacingCar> racingCars;
-	
+
 	public RacingCars(String[] carNames) {
 		racingCars = new ArrayList<>();
 		for (String carName : carNames) {
@@ -23,15 +23,15 @@ public class RacingCars {
 
 	public String[][] getCurrentLocation() {
 		String[][] location = new String[racingCars.size()][2];
-        for (int i = 0; i < racingCars.size(); i++) {
-        	location[i] = createLocation(racingCars.get(i));
-        }
-        return location;
+		for (int i = 0; i < racingCars.size(); i++) {
+			location[i] = createLocation(racingCars.get(i));
+		}
+		return location;
 	}
 
 	private String[] createLocation(RacingCar racingCar) {
 		String[] location = {racingCar.getCarName(), String.valueOf(racingCar.getLocation())};
-        return location;
+		return location;
 	}
 
 	public String[] getWinnerCars() {
@@ -56,5 +56,5 @@ public class RacingCars {
 		}
 		return maxLocation;
 	}
-	
+
 }
