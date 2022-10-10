@@ -18,4 +18,13 @@ public class RacingCarsTest {
                         String.format(RacingCarMessage.MESSAGE_VALIDATION_INPUT_LENGTH));
     }
 
+	@Test
+    void 이름에_대한_예외_1자_미만() {
+		assertThatIllegalArgumentException().isThrownBy(
+                ()->{
+                    String[] carNames = {"pobi","","javaji"};
+                    RacingCars invalidCars = new RacingCars(carNames);
+                }).withMessageContaining(
+                        String.format(RacingCarMessage.MESSAGE_VALIDATION_INPUT_LENGTH));
+    }
 }

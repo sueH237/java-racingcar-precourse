@@ -14,4 +14,20 @@ public class RacingCarValidationTest {
                         String.format(RacingCarMessage.MESSAGE_VALIDATION_INPUT_NUM)
                 );
     }
+	
+	@Test
+    void attempt_num에_대한_예외_처리_empty(){
+        assertThatIllegalArgumentException().isThrownBy(
+                ()-> RacingCarValidation.validateAttemptNum("")).withMessageContaining(
+                        String.format(RacingCarMessage.MESSAGE_VALIDATION_INPUT_NUM)
+                );
+    }
+	
+	@Test
+    void attempt_num에_대한_예외_처리_minus(){
+        assertThatIllegalArgumentException().isThrownBy(
+                ()-> RacingCarValidation.validateAttemptNum("-1")).withMessageContaining(
+                        String.format(RacingCarMessage.MESSAGE_VALIDATION_INPUT_NUM)
+                );
+    }
 }

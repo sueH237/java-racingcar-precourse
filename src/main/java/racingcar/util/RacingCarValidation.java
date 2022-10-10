@@ -31,13 +31,20 @@ public class RacingCarValidation {
 		throw new IllegalArgumentException(RacingCarMessage.MESSAGE_VALIDATION_INPUT_LENGTH);
 	}
 
-	public static boolean validateAttemptNum(String attempNum) {
+	public static boolean validateAttemptNum(String attemptNum) {
 		try {
-			Integer.parseInt(attempNum);
+			Integer.parseInt(attemptNum);
 		} catch (NumberFormatException e) {
 			throw new IllegalArgumentException(RacingCarMessage.ERROR_PREFIX + RacingCarMessage.MESSAGE_VALIDATION_INPUT_NUM);
 		}
-		return true;
+		return validateAttemptNumPlus(attemptNum);
+	}
+
+	private static boolean validateAttemptNumPlus(String attemptNumber) {
+		if (Integer.parseInt(attemptNumber) >= RacingCarNum.ATTEMPT_NUM_MIN) {
+			return true;
+		}
+		throw new IllegalArgumentException(RacingCarMessage.ERROR_PREFIX + RacingCarMessage.MESSAGE_VALIDATION_INPUT_NUM);
 	}
 
 }

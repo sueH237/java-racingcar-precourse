@@ -14,6 +14,13 @@ public class RacingCarTest {
         .withMessageContaining(
                 String.format(RacingCarMessage.MESSAGE_VALIDATION_INPUT_LENGTH));
     }
+	
+	@Test
+    void 이름에_대한_예외_1자_미만() {
+        assertThatIllegalArgumentException().isThrownBy(()-> new RacingCar(""))
+        .withMessageContaining(
+                String.format(RacingCarMessage.MESSAGE_VALIDATION_INPUT_LENGTH));
+    }
 
 
 }
