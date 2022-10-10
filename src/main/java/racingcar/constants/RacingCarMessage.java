@@ -12,8 +12,6 @@ public class RacingCarMessage {
 	public static final String MESSAGE_RESULT = "실행결과";
 	public static final String MESSAGE_WINNER = "최종 우승자"+CAR_NAME_COLON;
 	
-	
-	public static final String MESSAGE_VALIDATION_INPUT_END = "입력값은 1 또는 2 입니다.";
-	
 	public static final String MESSAGE_VALIDATION_INPUT_LENGTH = ERROR_PREFIX + "자동차 이름은 1자 이상 5자 이하입니다.";
+	public static final String MESSAGE_VALIDATION_INPUT_NUM = ERROR_PREFIX + "1 이상의 자연수를 입력해주세요.";
 }

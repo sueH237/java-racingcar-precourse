@@ -1,6 +1,7 @@
 package racingcar.util;
 
 import racingcar.constants.RacingCarMessage;
+import racingcar.constants.RacingCarNum;
 import racingcar.view.RacingCarError;
 
 public class RacingCarValidation {
@@ -24,7 +25,7 @@ public class RacingCarValidation {
 	}
 
 	private static boolean validateCarNameLength(String carName) {
-		if (carName.length() <= 5 && carName.length() >= 1) {
+		if (carName.length() <= RacingCarNum.CAR_NAME_MAX && carName.length() >= RacingCarNum.CAR_NAME_MIN) {
 			return true;
 		}
 		throw new IllegalArgumentException(RacingCarMessage.MESSAGE_VALIDATION_INPUT_LENGTH);
@@ -34,8 +35,7 @@ public class RacingCarValidation {
 		try {
 			Integer.parseInt(attempNum);
 		} catch (NumberFormatException e) {
-			RacingCarError.printAttemptNum(RacingCarMessage.ERROR_PREFIX + e.getMessage());
-			return false;
+			throw new IllegalArgumentException(RacingCarMessage.ERROR_PREFIX + RacingCarMessage.MESSAGE_VALIDATION_INPUT_NUM);
 		}
 		return true;
 	}
