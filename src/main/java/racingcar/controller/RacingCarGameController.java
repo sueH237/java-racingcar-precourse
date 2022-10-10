@@ -1,18 +1,19 @@
 package racingcar.controller;
 
-import racingcar.domain.RacingCar;
+import racingcar.domain.RacingCars;
 import racingcar.util.RacingCarValidation;
 import racingcar.view.RacingCarGameOut;
 import racingcar.view.RacingCarPlayer;
 
 public class RacingCarGameController {
 	public static void start() {
-		RacingCar cars = new RacingCar(readRacingCars());
+		RacingCars cars = new RacingCars(readRacingCars());
 		int attemptNum = readAttemptNum();
 		playGame(cars, attemptNum);
+		RacingCarGameOut.getGameResult(cars);
 	}
 	
-	private static void playGame(RacingCar cars, int attemptNum) {
+	private static void playGame(RacingCars cars, int attemptNum) {
 		RacingCarGameOut.printResult(cars);
 		for(int i = 0; i < attemptNum; i++) {
 			cars.play();
